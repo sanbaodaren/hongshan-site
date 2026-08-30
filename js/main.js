@@ -78,6 +78,18 @@
     document.querySelectorAll('[data-contour]').forEach(function (el) { el.innerHTML = CONTOUR_SVG; });
     document.querySelectorAll('[data-water]').forEach(function (el) { el.innerHTML = WATER_SVG; });
 
+    // 各板块页：退出按钮（返回首页/桌面）
+    var hero = document.querySelector('.page-hero');
+    if (hero) {
+      var exitBtn = document.createElement('a');
+      exitBtn.className = 'btn btn-exit';
+      exitBtn.href = 'index.html';
+      exitBtn.textContent = '← 退出';
+      exitBtn.title = '返回首页';
+      exitBtn.setAttribute('aria-label', '返回首页');
+      hero.appendChild(exitBtn);
+    }
+
     // 汉堡菜单
     var toggle = document.getElementById('navToggle');
     var nav = document.getElementById('siteNav');

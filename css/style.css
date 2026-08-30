@@ -238,6 +238,14 @@ button { font-family: inherit; cursor: pointer; }
   padding: 68px 0 60px;
 }
 .page-hero .container { position: relative; z-index: 2; }
+.btn-exit {
+  position: absolute; top: 20px; right: 24px; z-index: 3;
+  background: rgba(16,17,16,.05); border: 1px solid var(--concrete);
+  color: var(--steel); font-size: 13px; letter-spacing: .1em;
+  padding: 8px 16px; display: inline-flex; align-items: center; gap: 6px;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.btn-exit:hover { background: var(--ink); color: var(--soft); border-color: var(--ink); }
 .page-tag { font-family: var(--mono); font-size: 12px; letter-spacing: .28em; color: var(--qing); }
 .page-title { font-size: 32px; font-weight: 700; letter-spacing: .06em; margin-top: 10px; }
 .page-sub { font-size: 15px; color: var(--steel); margin-top: 8px; letter-spacing: .1em; }
@@ -616,6 +624,7 @@ button { font-family: inherit; cursor: pointer; }
   .tianshi { right: 18px; bottom: 14px; transform: scale(.6); transform-origin: bottom right; }
   .page-hero { padding: 48px 0 42px; }
   .page-title { font-size: 26px; }
+  .btn-exit { top: 14px; right: 14px; padding: 6px 12px; font-size: 12px; }
   .q-head { flex-direction: column; align-items: flex-start; gap: 6px; }
   .q-body { padding: 18px; font-size: 15px; }
   .q-actions { flex-wrap: wrap; }

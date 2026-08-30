@@ -106,29 +106,42 @@
 
   /* —— 每日一题 ——
      每条结构：{ no: 序号, date: '2026年8月29日', ds: '08.29', title: '标题',
-                 q: '题目图片路径', a: '解析图片/PDF路径', aType: 'img'|'pdf' }
-     缺少题目或解析时对应字段留空字符串。 */
+                 q: '题目图片路径', a: ['解析1路径','解析2路径'], aType: 'img'|'pdf' } */
   window.DAILY_QUESTIONS = [
-    { no: 8, date: '2026年8月29日', ds: '08.29', title: '双曲函数',
-      q: 'assets/daily/26-08-29-q.png', a: 'assets/daily/26-08-29-a.pdf', aType: 'pdf' },
-    { no: 7, date: '2026年8月28日', ds: '08.28', title: '',
-      q: 'assets/daily/26-08-28-q.png', a: 'assets/daily/26-08-28-a.pdf', aType: 'pdf' },
-    { no: 6, date: '2026年8月26日', ds: '08.26', title: '',
-      q: 'assets/daily/26-08-26-q.jpg', a: 'assets/daily/26-08-26-a.jpg', aType: 'img' },
-    { no: 5, date: '2026年8月25日', ds: '08.25', title: '',
-      q: '', a: 'assets/daily/26-08-25-a.jpg', aType: 'img' },
-    { no: 4, date: '2026年8月24日', ds: '08.24', title: '立体几何',
-      q: '', a: 'assets/daily/26-08-24-a.jpg', aType: 'img' },
-    { no: 3, date: '2026年8月22日', ds: '08.22', title: '',
-      q: 'assets/daily/26-08-22-q.png', a: '', aType: 'img' },
-    { no: 2, date: '2026年8月19日', ds: '08.19', title: '',
-      q: 'assets/daily/26-08-19-q.png', a: '', aType: 'img' },
-    { no: 1, date: '2026年8月16日', ds: '08.16', title: '双变量（二）',
-      q: 'assets/daily/26-08-16-q.png', a: '', aType: 'img' }
+    { no: 14, date: '2026年8月29日', ds: '08.29', title: '双曲函数',
+      q: 'assets/daily/26-08-29-q.png', a: ['assets/daily/26-08-29-a.pdf'], aType: 'pdf' },
+    { no: 13, date: '2026年8月28日', ds: '08.28', title: '',
+      q: 'assets/daily/26-08-28-q.png', a: ['assets/daily/26-08-28-a.pdf'], aType: 'pdf' },
+    { no: 12, date: '2026年8月26日', ds: '08.26', title: '',
+      q: 'assets/daily/26-08-26-q.jpg', a: ['assets/daily/26-08-26-a.jpg'], aType: 'img' },
+    { no: 11, date: '2026年8月25日', ds: '08.25', title: '',
+      q: 'assets/daily/26-08-25-q.jpg', a: ['assets/daily/26-08-25-a.jpg'], aType: 'img' },
+    { no: 10, date: '2026年8月24日', ds: '08.24', title: '立体几何',
+      q: 'assets/daily/26-08-24-q.jpg', a: ['assets/daily/26-08-24-a.jpg'], aType: 'img' },
+    { no: 9, date: '2026年8月23日', ds: '08.23', title: '',
+      q: 'assets/daily/26-08-23-q.jpg', a: ['assets/daily/26-08-23-a1.jpg', 'assets/daily/26-08-23-a2.jpg'], aType: 'img' },
+    { no: 8, date: '2026年8月22日', ds: '08.22', title: '',
+      q: 'assets/daily/26-08-22-q.png', a: ['assets/daily/26-08-22-a1.png', 'assets/daily/26-08-22-a2.png'], aType: 'img' },
+    { no: 7, date: '2026年8月21日', ds: '08.21', title: '向量',
+      q: 'assets/daily/26-08-21-q.jpg', a: ['assets/daily/26-08-21-a.jpg'], aType: 'img' },
+    { no: 6, date: '2026年8月20日', ds: '08.20', title: '',
+      q: 'assets/daily/26-08-20-q.jpg', a: ['assets/daily/26-08-20-a1.jpg', 'assets/daily/26-08-20-a2.jpg'], aType: 'img' },
+    { no: 5, date: '2026年8月19日', ds: '08.19', title: '',
+      q: 'assets/daily/26-08-19-q.png', a: ['assets/daily/26-08-19-a.png'], aType: 'img' },
+    { no: 4, date: '2026年8月18日', ds: '08.18', title: '清华强基 · 单位根（一）',
+      q: 'assets/daily/26-08-18-q.jpg', a: ['assets/daily/26-08-18-a.jpg'], aType: 'img' },
+    { no: 3, date: '2026年8月17日', ds: '08.17', title: '清华强基',
+      q: 'assets/daily/26-08-17-q.jpg', a: ['assets/daily/26-08-17-a.jpg'], aType: 'img' },
+    { no: 2, date: '2026年8月16日', ds: '08.16', title: '双变量（二）',
+      q: 'assets/daily/26-08-16-q.png', a: ['assets/daily/26-08-16-a.jpg'], aType: 'img' },
+    { no: 1, date: '2026年8月15日', ds: '08.15', title: '双变量（一）',
+      q: 'assets/daily/26-08-15-q.png', a: ['assets/daily/26-08-15-a.jpg'], aType: 'img' }
   ];
 
   PageInit.daily = function () {
     var data = window.DAILY_QUESTIONS || [];
+    var qc = document.getElementById('qCount');
+    if (qc) qc.textContent = data.length;
     var btn = document.getElementById('showAnswer');
     var ans = document.getElementById('qAnswer');
     var ansText = document.getElementById('qAnswerText');
@@ -151,11 +164,16 @@
         body.innerHTML = '<p class="q-missing">（该题暂无题目图片）</p>';
       }
 
-      if (q.a) {
+      var answers = q.a || [];
+      if (answers.length) {
         if (q.aType === 'pdf') {
-          ansText.innerHTML = '<a class="q-pdf" href="' + q.a + '" target="_blank" rel="noopener">▼ 查看解析 PDF（新窗口打开）</a>';
+          ansText.innerHTML = answers.map(function (p) {
+            return '<a class="q-pdf" href="' + p + '" target="_blank" rel="noopener">▼ 查看解析 PDF（新窗口打开）</a>';
+          }).join('');
         } else {
-          ansText.innerHTML = '<img class="q-img" src="' + q.a + '" alt="' + q.date + ' 解析">';
+          ansText.innerHTML = answers.map(function (p) {
+            return '<img class="q-img" src="' + p + '" alt="' + q.date + ' 解析">';
+          }).join('');
         }
       } else {
         ansText.innerHTML = '<p class="q-missing">（该题暂无解析）</p>';

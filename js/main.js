@@ -253,7 +253,13 @@
     document.querySelectorAll('.member-card').forEach(function (card) {
       card.addEventListener('click', function () {
         modal.querySelector('.m-name').textContent = card.getAttribute('data-name');
-        modal.querySelector('.m-avatar').textContent = card.getAttribute('data-name').slice(0, 2);
+        var modalAv = modal.querySelector('.m-avatar');
+        var avatarSrc = card.getAttribute('data-avatar');
+        if (avatarSrc) {
+          modalAv.innerHTML = '<img src="' + avatarSrc + '" alt="' + card.getAttribute('data-name') + '">';
+        } else {
+          modalAv.textContent = card.getAttribute('data-name').slice(0, 2);
+        }
         modal.querySelector('.m-role').textContent = card.getAttribute('data-role');
         modal.querySelector('.m-bio').textContent = card.getAttribute('data-bio');
         var tags = (card.getAttribute('data-tags') || '').split(',');

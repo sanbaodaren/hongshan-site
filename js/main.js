@@ -56,7 +56,7 @@
     return '' +
       '<footer class="site-footer">' +
         '<div class="container footer-inner">' +
-          '<p>© 2026 宏山科学院-铁一分部 · 大炎天师府附属</p>' +
+          '<p>© 2026 宏山科学院-铁一分部 · 大炎天师府附属<span class="footer-ver"> · v1.0</span></p>' +
           '<span class="footer-dot" aria-hidden="true"></span>' +
           '<p class="footer-slogan">绿水青山 · 科学发展</p>' +
         '</div>' +

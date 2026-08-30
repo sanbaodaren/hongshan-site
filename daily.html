@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日一题 · 宏山科学院-铁一分部</title>
+  <meta name="description" content="每日一练，积跬步以至千里。宏山科学院-铁一分部每日一题板块。">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="daily">
+
+  <div id="headerSlot"></div>
+
+  <main id="pageMain">
+
+    <!-- 页首横幅 -->
+    <section class="page-hero">
+      <div data-contour></div>
+      <div class="container">
+        <p class="page-tag">SECTION 01 / DAILY</p>
+        <h1 class="page-title">每日一题</h1>
+        <p class="page-sub">每日一练，积跬步以至千里</p>
+      </div>
+      <div class="tianshi tianshi-sm" aria-hidden="true">
+        <div class="tianshi-cap"></div>
+        <div class="tianshi-pillar"></div>
+        <div class="tianshi-base"></div>
+      </div>
+    </section>
+
+    <section class="page-body">
+      <div class="container split">
+
+        <!-- ============ 左栏 65% ============ -->
+        <div class="split-main">
+          <article class="question">
+            <div class="q-head">
+              <h2 class="q-title" id="qTitle">今日题目</h2>
+              <span class="q-date" id="qDate">——</span>
+            </div>
+            <div class="q-body" id="qBody">今日题目尚未录入，等待真实题目内容。</div>
+            <div class="q-actions">
+              <button class="btn btn-primary" id="showAnswer">显示答案</button>
+              <button class="btn btn-ghost" id="nextQuestion">下一题</button>
+            </div>
+            <div class="q-answer" id="qAnswer" hidden>
+              <p class="q-answer-label">参考答案</p>
+              <div id="qAnswerText"></div>
+            </div>
+          </article>
+        </div>
+
+        <!-- ============ 右栏 35% ============ -->
+        <aside class="split-side">
+
+          <div class="side-card">
+            <h3 class="side-title">历史题目</h3>
+            <div class="empty-state">
+              <p class="empty-ico" aria-hidden="true">◇</p>
+              <p class="empty-text">暂无历史题目</p>
+            </div>
+          </div>
+
+          <div class="side-card">
+            <h3 class="side-title">学习进度</h3>
+            <div class="progress">
+              <div class="progress-track"><div class="progress-bar" style="width:0"></div></div>
+              <p class="progress-meta">待统计</p>
+            </div>
+          </div>
+
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footerSlot"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

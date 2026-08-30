@@ -413,13 +413,13 @@ button { font-family: inherit; cursor: pointer; }
 
 .file-list { border: 1px solid var(--concrete); background: var(--pear); box-shadow: var(--shadow-sm); }
 .file-head {
-  display: grid; grid-template-columns: 1fr 150px 130px 80px;
+  display: grid; grid-template-columns: 1fr 150px;
   gap: 16px; padding: 12px 20px;
   background: var(--ink); color: var(--concrete);
   font-size: 12px; letter-spacing: .12em;
 }
 .file-row {
-  display: grid; grid-template-columns: 1fr 150px 130px 80px;
+  display: grid; grid-template-columns: 1fr 150px;
   gap: 16px; padding: 14px 20px; align-items: center;
   border-bottom: 1px solid var(--concrete);
   transition: background .2s ease;
@@ -441,6 +441,37 @@ button { font-family: inherit; cursor: pointer; }
 }
 .empty-ico { font-size: 26px; color: var(--concrete); line-height: 1; }
 .empty-text { margin-top: 12px; font-size: 13px; color: var(--muted-l); letter-spacing: .12em; }
+
+/* ============================================================
+   资源共享 · 学科选择卡片
+   ============================================================ */
+.subject-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.subject-card {
+  position: relative; background: var(--pear); border: 1px solid var(--concrete);
+  padding: 36px 24px 30px; text-align: center; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  box-shadow: var(--shadow-sm);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
+}
+.subject-card:hover { transform: translateY(-4px); border-color: var(--qing); box-shadow: var(--shadow-lg); }
+.sc-count {
+  position: absolute; top: 0; right: 0; padding: 4px 10px;
+  background: var(--qing); color: #0b2a2a;
+  font-family: var(--mono); font-size: 12px; letter-spacing: .05em;
+}
+.sc-name { font-size: 22px; font-weight: 600; letter-spacing: .06em; }
+.sc-sub { font-size: 13px; color: var(--muted); }
+.subject-card.empty { opacity: .7; cursor: default; }
+.subject-card.empty:hover { transform: none; border-color: var(--concrete); box-shadow: var(--shadow-sm); }
+.subject-card.empty .sc-count { background: var(--concrete); color: var(--muted-l); }
+
+/* 资源共享 · 列表视图头 */
+.list-head {
+  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  border-bottom: 1px solid var(--concrete); padding-bottom: 14px; margin-bottom: 28px;
+}
+.list-head h2 { font-size: 26px; font-weight: 700; letter-spacing: .06em; }
+.list-count { font-family: var(--mono); font-size: 13px; color: var(--muted-l); letter-spacing: .08em; }
 
 /* ============================================================
    拓展知识 · 左(70%) + 右(30%)
@@ -559,13 +590,12 @@ button { font-family: inherit; cursor: pointer; }
   .nav-link { padding: 14px 4px; border-bottom: 1px solid rgba(212,212,206,.14); font-size: 15px; }
   .nav-link:last-child { border-bottom: none; }
 
-  .board-grid, .share-grid, .method-grid { grid-template-columns: repeat(2, 1fr); }
+  .board-grid, .share-grid, .method-grid, .subject-grid { grid-template-columns: repeat(2, 1fr); }
   .member-grid { grid-template-columns: repeat(2, 1fr); }
   .split, .split-k { grid-template-columns: 1fr; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .banner-title { font-size: 38px; }
-  .file-head, .file-row { grid-template-columns: 1fr 120px 90px; }
-  .file-head .col-ico, .file-row .file-ico { display: none; }
+  .file-head, .file-row { grid-template-columns: 1fr 110px; }
 }
 
 /* < 768px：1列，卡片堆叠，字体缩小 */
@@ -580,6 +610,7 @@ button { font-family: inherit; cursor: pointer; }
   .banner-sub { font-size: 15px; letter-spacing: .08em; }
   .board-section { padding: 44px 0 56px; }
   .board-grid, .share-grid, .method-grid, .member-grid { grid-template-columns: 1fr; }
+  .subject-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .stat-value { font-size: 22px; }
   .tianshi { right: 18px; bottom: 14px; transform: scale(.6); transform-origin: bottom right; }
@@ -589,6 +620,5 @@ button { font-family: inherit; cursor: pointer; }
   .q-body { padding: 18px; font-size: 15px; }
   .q-actions { flex-wrap: wrap; }
   .file-head, .file-row { grid-template-columns: 1fr 80px; }
-  .file-head .col-meta, .file-row .file-meta { display: none; }
-  .dl-count { text-align: left; }
+  .file-name { font-size: 13px; }
 }

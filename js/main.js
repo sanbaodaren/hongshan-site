@@ -259,18 +259,92 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
   };
 
-  /* —— 资源共享 —— */
+  /* —— 资源共享 ——
+     流程：先选学科 → 再进对应资源的文件列表 */
+  window.RESOURCE_FILES = { '数学': [
+    { name: "2021-2026八省数学联考分类汇编 - 解析.pdf", file: "assets/resources/math/2021-2026八省数学联考分类汇编 - 解析.pdf", type: 'PDF', size: '9.9M' },
+    { name: "专题---导数综合应用（培优重难专练）（解析版）.docx", file: "assets/resources/math/专题---导数综合应用（培优重难专练）（解析版）.docx", type: 'DOCX', size: '6.1M' },
+    { name: "函数与导数1（60题）.docx", file: "assets/resources/math/函数与导数1（60题）.docx", type: 'DOCX', size: '4.1M' },
+    { name: "函数与导数2（60题）.docx", file: "assets/resources/math/函数与导数2（60题）.docx", type: 'DOCX', size: '4.8M' },
+    { name: "圆锥曲线基础知识篇(275页).pdf", file: "assets/resources/math/圆锥曲线基础知识篇(275页).pdf", type: 'PDF', size: '13.8M' },
+    { name: "圆锥曲线技巧套路篇(223页).pdf", file: "assets/resources/math/圆锥曲线技巧套路篇(223页).pdf", type: 'PDF', size: '11.1M' },
+    { name: "圆锥曲线极点极线篇(97页).pdf", file: "assets/resources/math/圆锥曲线极点极线篇(97页).pdf", type: 'PDF', size: '5.5M' },
+    { name: "圆锥曲线（40道）（0.1）.docx", file: "assets/resources/math/圆锥曲线（40道）（0.1）.docx", type: 'DOCX', size: '10.1M' },
+    { name: "导数强化研究1(2).docx", file: "assets/resources/math/导数强化研究1(2).docx", type: 'DOCX', size: '210K' },
+    { name: "导数综合应用（培优重难专练）.pdf", file: "assets/resources/math/导数综合应用（培优重难专练）.pdf", type: 'PDF', size: '719K' },
+    { name: "收心考----模拟卷_版.pdf", file: "assets/resources/math/收心考----模拟卷_版.pdf", type: 'PDF', size: '1.2M' },
+    { name: "数学-140分重难点专题50讲之19 三角函数零点与恒成立问题四大题型汇总（原卷版）.pdf", file: "assets/resources/math/数学-140分重难点专题50讲之19 三角函数零点与恒成立问题四大题型汇总（原卷版）.pdf", type: 'PDF', size: '1.1M' },
+    { name: "数学-全练一本通12本之第4本-三角函数.pdf", file: "assets/resources/math/数学-全练一本通12本之第4本-三角函数.pdf", type: 'PDF', size: '6.2M' },
+    { name: "数学-王牌中学新高考知识总结.pdf", file: "assets/resources/math/数学-王牌中学新高考知识总结.pdf", type: 'PDF', size: '2.8M' },
+    { name: "数学-衡水中学-复数与平面向量专题.pdf", file: "assets/resources/math/数学-衡水中学-复数与平面向量专题.pdf", type: 'PDF', size: '3.5M' },
+    { name: "数学-衡水中学-平面向量的综合应用.pdf", file: "assets/resources/math/数学-衡水中学-平面向量的综合应用.pdf", type: 'PDF', size: '7.2M' },
+    { name: "数学-高中数学培优讲义(1).pdf", file: "assets/resources/math/数学-高中数学培优讲义(1).pdf", type: 'PDF', size: '3.1M' },
+    { name: "数学E1--E3--0320.pdf", file: "assets/resources/math/数学E1--E3--0320.pdf", type: 'PDF', size: '500K' },
+    { name: "数学干货-2025届高考必做课本典型习题（解析版.5本合集）.pdf", file: "assets/resources/math/数学干货-2025届高考必做课本典型习题（解析版.5本合集）.pdf", type: 'PDF', size: '15.1M' },
+    { name: "数学指南 _ 实用数学手册.pdf", file: "assets/resources/math/数学指南 _ 实用数学手册.pdf", type: 'PDF', size: '9M' },
+    { name: "数学秘籍：高中数学知识方法典型题.pdf", file: "assets/resources/math/数学秘籍：高中数学知识方法典型题.pdf", type: 'PDF', size: '2.5M' },
+    { name: "概率（40题）（0.1）.docx", file: "assets/resources/math/概率（40题）（0.1）.docx", type: 'DOCX', size: '4.2M' },
+    { name: "模拟夯基练习1 .docx", file: "assets/resources/math/模拟夯基练习1 .docx", type: 'DOCX', size: '1.1M' },
+    { name: "模拟夯基练习2.docx", file: "assets/resources/math/模拟夯基练习2.docx", type: 'DOCX', size: '1.2M' },
+    { name: "模拟夯基练习3.docx", file: "assets/resources/math/模拟夯基练习3.docx", type: 'DOCX', size: '1.3M' },
+    { name: "模拟夯基练习4.docx", file: "assets/resources/math/模拟夯基练习4.docx", type: 'DOCX', size: '1.8M' },
+    { name: "模拟夯基练习6（教师版）.pdf", file: "assets/resources/math/模拟夯基练习6（教师版）.pdf", type: 'PDF', size: '800K' },
+    { name: "狂练小题.pdf", file: "assets/resources/math/狂练小题.pdf", type: 'PDF', size: '2M' },
+    { name: "狂练小题（一）（解析版）.docx", file: "assets/resources/math/狂练小题（一）（解析版）.docx", type: 'DOCX', size: '3.1M' },
+    { name: "精品解析：浙江省杭州市临平区2026 年中考模拟检测数学试题卷（原卷版）.docx", file: "assets/resources/math/精品解析：浙江省杭州市临平区2026 年中考模拟检测数学试题卷（原卷版）.docx", type: 'DOCX', size: '1.4M' },
+    { name: "阿波罗尼斯圆和蒙日圆的问题（学生版）.pdf", file: "assets/resources/math/阿波罗尼斯圆和蒙日圆的问题（学生版）.pdf", type: 'PDF', size: '1.5M' },
+    { name: "（PDF）高中数学竞赛真题+强基计划真题专项训练.zip", file: "assets/resources/math/（PDF）高中数学竞赛真题+强基计划真题专项训练.zip", type: 'ZIP', size: '10.8M' }
+  ] };
+
   PageInit.resources = function () {
-    document.querySelectorAll('.tab').forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        document.querySelectorAll('.tab').forEach(function (t) { t.classList.remove('active'); });
-        tab.classList.add('active');
-        var cat = tab.getAttribute('data-cat');
-        document.querySelectorAll('.file-row').forEach(function (row) {
-          row.hidden = (cat !== 'all' && row.getAttribute('data-cat') !== cat);
-        });
-      });
+    var SUBJECTS = ['数学', '物理', '化学', '生物', '语文', '英语', '历史', '地理', '政治'];
+    var subjectView = document.getElementById('subjectView');
+    var listView = document.getElementById('listView');
+    var grid = document.getElementById('subjectGrid');
+    var fileList = document.getElementById('fileListBody');
+    if (!subjectView || !listView || !grid) return;
+
+    function esc(s) {
+      return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function showList(subject) {
+      var files = window.RESOURCE_FILES[subject] || [];
+      document.getElementById('listTitle').textContent = subject;
+      document.getElementById('listCount').textContent = files.length + ' 个资源';
+      fileList.innerHTML = files.map(function (f) {
+        return '<div class="file-row">' +
+          '<a class="file-name" href="' + esc(f.file) + '" target="_blank" rel="noopener"><span class="file-ico">▤</span>' + esc(f.name) + '</a>' +
+          '<span class="file-meta">' + esc(f.type) + ' · ' + esc(f.size) + '</span>' +
+        '</div>';
+      }).join('');
+      subjectView.hidden = true;
+      listView.hidden = false;
+    }
+
+    // 渲染学科选择卡片
+    grid.innerHTML = SUBJECTS.map(function (s) {
+      var count = (window.RESOURCE_FILES[s] || []).length;
+      return '<button class="subject-card' + (count ? '' : ' empty') + '" data-subject="' + s + '">' +
+        '<span class="sc-count">' + count + '</span>' +
+        '<span class="sc-name">' + s + '</span>' +
+        '<span class="sc-sub">' + (count ? count + ' 个资源' : '暂无资源') + '</span>' +
+      '</button>';
+    }).join('');
+
+    grid.addEventListener('click', function (e) {
+      var card = e.target.closest('.subject-card');
+      if (!card || card.classList.contains('empty')) return;
+      showList(card.getAttribute('data-subject'));
     });
+
+    var back = document.getElementById('backToSubjects');
+    if (back) {
+      back.addEventListener('click', function () {
+        listView.hidden = true;
+        subjectView.hidden = false;
+      });
+    }
   };
 
   /* —— 拓展知识 —— */

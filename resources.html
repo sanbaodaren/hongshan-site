@@ -31,28 +31,32 @@
     <section class="page-body">
       <div class="container">
 
-        <div class="toolbar">
-          <div class="tabs" role="tablist">
-            <button class="tab active" data-cat="all">全部</button>
-            <button class="tab" data-cat="course">课件</button>
-            <button class="tab" data-cat="exam">试卷</button>
-            <button class="tab" data-cat="note">笔记</button>
-            <button class="tab" data-cat="paper">文献</button>
+        <!-- ============ 第 1 步：选择学科 ============ -->
+        <div id="subjectView">
+          <div class="section-head">
+            <h2 class="section-title"><span class="idx">//</span>选择学科 <span class="idx" style="color:#4a6a7a">SUBJECTS</span></h2>
+            <p class="section-sub">SELECT SUBJECT</p>
           </div>
-          <button class="btn btn-primary">+ 上传资源</button>
+          <p style="font-size:13px;color:var(--muted-l);letter-spacing:.05em;margin-bottom:24px;">选择学科查看对应资源；角标数字为该学科资源数量</p>
+          <div class="subject-grid" id="subjectGrid"></div>
         </div>
 
-        <div class="file-list">
-          <div class="file-head">
-            <span>文件名</span>
-            <span>上传者</span>
-            <span>上传时间</span>
-            <span style="text-align:right;">下载次数</span>
+        <!-- ============ 第 2 步：文件列表 ============ -->
+        <div id="listView" hidden>
+          <div class="list-head">
+            <button class="btn btn-ghost btn-sm" id="backToSubjects">← 返回学科选择</button>
+            <h2 id="listTitle">数学</h2>
+            <span class="list-count" id="listCount">0 个资源</span>
           </div>
-
-          <div class="file-empty">暂无资源 · 等待真实数据录入</div>
-
+          <div class="file-list">
+            <div class="file-head">
+              <span>文件名</span>
+              <span style="text-align:right;">类型 · 大小</span>
+            </div>
+            <div id="fileListBody"></div>
+          </div>
         </div>
+
       </div>
     </section>
 

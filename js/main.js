@@ -105,25 +105,82 @@
   window.PageInit = window.PageInit || {};
 
   /* —— 每日一题 ——
-     DAILY_QUESTIONS：真实题目数据待录入。
-     每条结构：{ no: 序号, date: '2026年8月30日', title: '标题',
-                 body: '<p>题目正文，支持 HTML</p>', answer: '<p>参考答案，支持 HTML</p>' } */
-  window.DAILY_QUESTIONS = [];
+     每条结构：{ no: 序号, date: '2026年8月29日', ds: '08.29', title: '标题',
+                 q: '题目图片路径', a: '解析图片/PDF路径', aType: 'img'|'pdf' }
+     缺少题目或解析时对应字段留空字符串。 */
+  window.DAILY_QUESTIONS = [
+    { no: 8, date: '2026年8月29日', ds: '08.29', title: '双曲函数',
+      q: 'assets/daily/26-08-29-q.png', a: 'assets/daily/26-08-29-a.pdf', aType: 'pdf' },
+    { no: 7, date: '2026年8月28日', ds: '08.28', title: '',
+      q: 'assets/daily/26-08-28-q.png', a: 'assets/daily/26-08-28-a.pdf', aType: 'pdf' },
+    { no: 6, date: '2026年8月26日', ds: '08.26', title: '',
+      q: 'assets/daily/26-08-26-q.jpg', a: 'assets/daily/26-08-26-a.jpg', aType: 'img' },
+    { no: 5, date: '2026年8月25日', ds: '08.25', title: '',
+      q: '', a: 'assets/daily/26-08-25-a.jpg', aType: 'img' },
+    { no: 4, date: '2026年8月24日', ds: '08.24', title: '立体几何',
+      q: '', a: 'assets/daily/26-08-24-a.jpg', aType: 'img' },
+    { no: 3, date: '2026年8月22日', ds: '08.22', title: '',
+      q: 'assets/daily/26-08-22-q.png', a: '', aType: 'img' },
+    { no: 2, date: '2026年8月19日', ds: '08.19', title: '',
+      q: 'assets/daily/26-08-19-q.png', a: '', aType: 'img' },
+    { no: 1, date: '2026年8月16日', ds: '08.16', title: '双变量（二）',
+      q: 'assets/daily/26-08-16-q.png', a: '', aType: 'img' }
+  ];
 
   PageInit.daily = function () {
+    var data = window.DAILY_QUESTIONS || [];
     var btn = document.getElementById('showAnswer');
     var ans = document.getElementById('qAnswer');
+    var ansText = document.getElementById('qAnswerText');
     var qIndex = 0;
 
+    function esc(s) {
+      return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
     function render(i) {
-      var q = window.DAILY_QUESTIONS[i];
-      if (!q) return;
-      document.getElementById('qTitle').textContent = q.title;
-      document.getElementById('qBody').innerHTML = q.body;
-      document.getElementById('qAnswerText').innerHTML = q.answer;
+      if (!data.length) return;
+      var q = data[i];
+      document.getElementById('qTitle').textContent = q.title || '每日一题';
       document.getElementById('qDate').textContent = q.date + ' · 第 ' + q.no + ' 题';
+
+      var body = document.getElementById('qBody');
+      if (q.q) {
+        body.innerHTML = '<img class="q-img" src="' + q.q + '" alt="' + q.date + ' 题目">';
+      } else {
+        body.innerHTML = '<p class="q-missing">（该题暂无题目图片）</p>';
+      }
+
+      if (q.a) {
+        if (q.aType === 'pdf') {
+          ansText.innerHTML = '<a class="q-pdf" href="' + q.a + '" target="_blank" rel="noopener">▼ 查看解析 PDF（新窗口打开）</a>';
+        } else {
+          ansText.innerHTML = '<img class="q-img" src="' + q.a + '" alt="' + q.date + ' 解析">';
+        }
+      } else {
+        ansText.innerHTML = '<p class="q-missing">（该题暂无解析）</p>';
+      }
+
       ans.hidden = true;
-      btn.textContent = '显示答案';
+      if (btn) btn.textContent = '显示答案';
+    }
+
+    // 历史题目列表（与数据同步生成）
+    var list = document.getElementById('historyList');
+    if (list) {
+      list.innerHTML = data.map(function (q, i) {
+        return '<li><a href="#" data-index="' + i + '">' +
+          '<span class="s-list-date">' + esc(q.ds) + '</span>' + esc(q.title || '每日一题') +
+          '</a></li>';
+      }).join('');
+      list.addEventListener('click', function (e) {
+        var t = e.target.closest('a[data-index]');
+        if (t) {
+          e.preventDefault();
+          qIndex = +t.getAttribute('data-index');
+          render(qIndex);
+        }
+      });
     }
 
     if (btn && ans) {
@@ -135,10 +192,12 @@
     var next = document.getElementById('nextQuestion');
     if (next) {
       next.addEventListener('click', function () {
-        qIndex = (qIndex + 1) % window.DAILY_QUESTIONS.length;
+        qIndex = (qIndex + 1) % data.length;
         render(qIndex);
       });
     }
+
+    render(0);
   };
 
   /* —— 好题分享 —— */

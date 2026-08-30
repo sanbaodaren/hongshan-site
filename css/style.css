@@ -267,6 +267,19 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 12px; font-weight: 600; letter-spacing: .18em;
   color: var(--qing); margin-bottom: 8px;
 }
+.q-img {
+  max-width: 100%; height: auto;
+  border: 1px solid var(--concrete); background: #fff;
+  margin-top: 12px;
+}
+.q-missing { color: var(--muted-l); font-size: 13px; letter-spacing: .06em; }
+.q-pdf {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--qing); border: 1px solid var(--qing);
+  padding: 8px 16px; font-size: 13px; margin-top: 12px;
+  transition: background .2s ease, color .2s ease;
+}
+.q-pdf:hover { background: var(--qing); color: #0b2a2a; }
 
 .side-card { border: 1px solid var(--concrete); background: var(--pear); box-shadow: var(--shadow-sm); margin-bottom: 24px; }
 .side-title {

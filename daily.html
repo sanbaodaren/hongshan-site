@@ -35,10 +35,10 @@
         <div class="split-main">
           <article class="question">
             <div class="q-head">
-              <h2 class="q-title" id="qTitle">今日题目</h2>
+              <h2 class="q-title" id="qTitle">每日一题</h2>
               <span class="q-date" id="qDate">——</span>
             </div>
-            <div class="q-body" id="qBody">今日题目尚未录入，等待真实题目内容。</div>
+            <div class="q-body" id="qBody"></div>
             <div class="q-actions">
               <button class="btn btn-primary" id="showAnswer">显示答案</button>
               <button class="btn btn-ghost" id="nextQuestion">下一题</button>
@@ -55,17 +55,14 @@
 
           <div class="side-card">
             <h3 class="side-title">历史题目</h3>
-            <div class="empty-state">
-              <p class="empty-ico" aria-hidden="true">◇</p>
-              <p class="empty-text">暂无历史题目</p>
-            </div>
+            <ul class="side-list" id="historyList"></ul>
           </div>
 
           <div class="side-card">
             <h3 class="side-title">学习进度</h3>
             <div class="progress">
               <div class="progress-track"><div class="progress-bar" style="width:0"></div></div>
-              <p class="progress-meta">待统计</p>
+              <p class="progress-meta">题库共 <b id="qCount" style="color:var(--qing)">8</b> 题 · 进度待统计</p>
             </div>
           </div>
 

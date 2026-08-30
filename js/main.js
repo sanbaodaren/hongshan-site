@@ -274,7 +274,26 @@
   };
 
   /* —— 拓展知识 —— */
-  PageInit.knowledge = function () { /* 静态内容，无需脚本 */ };
+  PageInit.knowledge = function () {
+    var cloud = document.getElementById('tagCloud');
+    if (!cloud) return;
+    var cards = document.querySelectorAll('#articleList .article-card');
+    var empty = document.getElementById('articleEmpty');
+    cloud.querySelectorAll('.tag').forEach(function (tag) {
+      tag.addEventListener('click', function () {
+        cloud.querySelectorAll('.tag').forEach(function (t) { t.classList.remove('active'); });
+        tag.classList.add('active');
+        var cat = tag.getAttribute('data-cat');
+        var shown = 0;
+        cards.forEach(function (card) {
+          var match = (cat === 'all' || card.getAttribute('data-cat') === cat);
+          card.hidden = !match;
+          if (match) shown++;
+        });
+        if (empty) empty.hidden = shown > 0;
+      });
+    });
+  };
 
   /* —— 学习方法 —— */
   PageInit.methods = function () {

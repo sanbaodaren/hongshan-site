@@ -130,11 +130,12 @@ button { font-family: inherit; cursor: pointer; }
   transition: transform .2s ease;
 }
 .banner-entry:hover .entry-arrow { transform: translateX(3px); }
+.banner-entry:focus-visible { outline: 2px solid var(--qing); outline-offset: 2px; }
 @media (min-width: 1200px) {
   .banner-entry { left: calc((100% - 1200px) / 2 + 24px); }
 }
 @media (max-width: 767px) {
-  .banner-entry { left: 20px; bottom: 24px; padding: 5px 8px; font-size: 11px; }
+  .banner-entry { bottom: 22px; padding: 5px 8px; font-size: 11px; }
   .banner-entry .entry-dim { display: none; }
 }
 

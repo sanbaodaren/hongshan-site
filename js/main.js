@@ -279,7 +279,8 @@
 
   /* —— 资源共享 ——
      流程：先选学科 → 再进对应资源的文件列表 */
-  window.RESOURCE_FILES = { '数学': [
+  window.RESOURCE_FILES = {
+  '数学': [
     { name: "2021-2026八省数学联考分类汇编 - 解析.pdf", file: "assets/resources/math/2021-2026八省数学联考分类汇编 - 解析.pdf", type: 'PDF', size: '9.9M' },
     { name: "专题---导数综合应用（培优重难专练）（解析版）.docx", file: "assets/resources/math/专题---导数综合应用（培优重难专练）（解析版）.docx", type: 'DOCX', size: '6.1M' },
     { name: "函数与导数1（60题）.docx", file: "assets/resources/math/函数与导数1（60题）.docx", type: 'DOCX', size: '4.1M' },
@@ -312,6 +313,65 @@
     { name: "精品解析：浙江省杭州市临平区2026 年中考模拟检测数学试题卷（原卷版）.docx", file: "assets/resources/math/精品解析：浙江省杭州市临平区2026 年中考模拟检测数学试题卷（原卷版）.docx", type: 'DOCX', size: '1.4M' },
     { name: "阿波罗尼斯圆和蒙日圆的问题（学生版）.pdf", file: "assets/resources/math/阿波罗尼斯圆和蒙日圆的问题（学生版）.pdf", type: 'PDF', size: '1.5M' },
     { name: "（PDF）高中数学竞赛真题+强基计划真题专项训练.zip", file: "assets/resources/math/（PDF）高中数学竞赛真题+强基计划真题专项训练.zip", type: 'ZIP', size: '10.8M' }
+  ],
+  '化学': [
+    { name: "2024高中化学基础知识必备完整-.docx", file: "assets/resources/chem/2024高中化学基础知识必备完整-.docx", type: 'DOCX', size: '90K' },
+    { name: "反应原理高考真题日日练.pdf", file: "assets/resources/chem/反应原理高考真题日日练.pdf", type: 'PDF', size: '4.8M' },
+    { name: "反应原理高考真题日日练答案页.pdf", file: "assets/resources/chem/反应原理高考真题日日练答案页.pdf", type: 'PDF', size: '1.6M' },
+    { name: "工艺流程（6.9）.docx", file: "assets/resources/chem/工艺流程（6.9）.docx", type: 'DOCX', size: '26M' },
+    { name: "水溶液30题（5.25）.docx", file: "assets/resources/chem/水溶液30题（5.25）.docx", type: 'DOCX', size: '7.4M' },
+    { name: "（超详）高中化学知识点归纳汇总.pdf", file: "assets/resources/chem/（超详）高中化学知识点归纳汇总.pdf", type: 'PDF', size: '1.5M' }
+  ],
+  '生物': [
+    { name: "2026年高考陕晋青宁卷生物高考真题（网络 收集版）（纯答案版）.docx", file: "assets/resources/bio/2026年高考陕晋青宁卷生物高考真题（网络 收集版）（纯答案版）.docx", type: 'DOCX', size: '48K' },
+    { name: "人教版新教材必修1《分子与细胞》课后习题答案.docx", file: "assets/resources/bio/人教版新教材必修1《分子与细胞》课后习题答案.docx", type: 'DOCX', size: '749K' },
+    { name: "基因工程40题（5.21）.docx", file: "assets/resources/bio/基因工程40题（5.21）.docx", type: 'DOCX', size: '19.5M' },
+    { name: "生物-高一生物必修一复习提纲(精华版).pdf", file: "assets/resources/bio/生物-高一生物必修一复习提纲(精华版).pdf", type: 'PDF', size: '607K' },
+    { name: "生物-高中生物214条课本黑体字知识.pdf", file: "assets/resources/bio/生物-高中生物214条课本黑体字知识.pdf", type: 'PDF', size: '990K' },
+    { name: "生物练习1.docx", file: "assets/resources/bio/生物练习1.docx", type: 'DOCX', size: '2.2M' }
+  ],
+  '物理': [
+    { name: "27-X-023C-物理DAz.pdf", file: "assets/resources/phys/27-X-023C-物理DAz.pdf", type: 'PDF', size: '1.4M' },
+    { name: "27-X-023C-物理ZQ.pdf", file: "assets/resources/phys/27-X-023C-物理ZQ.pdf", type: 'PDF', size: '3M' },
+    { name: "37 第19讲　动量守恒定律及其应用 (1).docx", file: "assets/resources/phys/37 第19讲　动量守恒定律及其应用 (1).docx", type: 'DOCX', size: '131K' },
+    { name: "37 第19讲　动量守恒定律及其应用.docx", file: "assets/resources/phys/37 第19讲　动量守恒定律及其应用.docx", type: 'DOCX', size: '165K' },
+    { name: "38 专题九　“子弹打木块”模型和“滑块—木板”模型 (1).docx", file: "assets/resources/phys/38 专题九　“子弹打木块”模型和“滑块—木板”模型 (1).docx", type: 'DOCX', size: '86K' },
+    { name: "38 专题九　“子弹打木块”模型和“滑块—木板”模型.docx", file: "assets/resources/phys/38 专题九　“子弹打木块”模型和“滑块—木板”模型.docx", type: 'DOCX', size: '65K' },
+    { name: "39 专题十    “滑块—曲面”模型和“滑块—弹簧”模型.docx", file: "assets/resources/phys/39 专题十    “滑块—曲面”模型和“滑块—弹簧”模型.docx", type: 'DOCX', size: '60K' },
+    { name: "40 专题十一　动力学、能量、动量三大观点的综合应用.docx", file: "assets/resources/phys/40 专题十一　动力学、能量、动量三大观点的综合应用.docx", type: 'DOCX', size: '56K' },
+    { name: "7动量专题练 学生版.docx", file: "assets/resources/phys/7动量专题练 学生版.docx", type: 'DOCX', size: '1007K' },
+    { name: "7动量专题练.docx", file: "assets/resources/phys/7动量专题练.docx", type: 'DOCX', size: '2.1M' },
+    { name: "8微专题：力学综合.docx", file: "assets/resources/phys/8微专题：力学综合.docx", type: 'DOCX', size: '4.1M' },
+    { name: "牛顿定律强度训练(1).docx", file: "assets/resources/phys/牛顿定律强度训练(1).docx", type: 'DOCX', size: '2.3M' },
+    { name: "物理-2025版高考物理大招技巧共四册之（三）（上）.pdf", file: "assets/resources/phys/物理-2025版高考物理大招技巧共四册之（三）（上）.pdf", type: 'PDF', size: '27.1M' },
+    { name: "物理-2025版高考物理大招技巧共四册之（三）（下）.pdf", file: "assets/resources/phys/物理-2025版高考物理大招技巧共四册之（三）（下）.pdf", type: 'PDF', size: '28M' },
+    { name: "物理-2025版高考物理大招技巧共四册之（四）（上）.pdf", file: "assets/resources/phys/物理-2025版高考物理大招技巧共四册之（四）（上）.pdf", type: 'PDF', size: '28.8M' },
+    { name: "物理-2025版高考物理大招技巧共四册之（四）（下）.pdf", file: "assets/resources/phys/物理-2025版高考物理大招技巧共四册之（四）（下）.pdf", type: 'PDF', size: '25.7M' },
+    { name: "物理-《2025解题觉醒》九门之物理（上下册之上册）.pdf", file: "assets/resources/phys/物理-《2025解题觉醒》九门之物理（上下册之上册）.pdf", type: 'PDF', size: '29.6M' },
+    { name: "物理-高考物理三大板块专题训练.pdf", file: "assets/resources/phys/物理-高考物理三大板块专题训练.pdf", type: 'PDF', size: '2M' },
+    { name: "物理学史50题（5.21）.docx", file: "assets/resources/phys/物理学史50题（5.21）.docx", type: 'DOCX', size: '779K' },
+    { name: "物理模考卷.zip", file: "assets/resources/phys/物理模考卷.zip", type: 'ZIP', size: '9.8M' },
+    { name: "电磁学压轴.docx", file: "assets/resources/phys/电磁学压轴.docx", type: 'DOCX', size: '15.6M' },
+    { name: "电磁感应1含答案.docx", file: "assets/resources/phys/电磁感应1含答案.docx", type: 'DOCX', size: '978K' },
+    { name: "电磁感应2含答案.docx", file: "assets/resources/phys/电磁感应2含答案.docx", type: 'DOCX', size: '796K' },
+    { name: "第十二周高二大练考 （物理科目）.docx", file: "assets/resources/phys/第十二周高二大练考 （物理科目）.docx", type: 'DOCX', size: '481K' }
+  ],
+  '英语': [
+    { name: "2019版人教版新课标高中英语选择性必修1词汇表（带音标单词表+带音标汉译英默写+无音标汉译英默写+英译汉默写）.pdf", file: "assets/resources/eng/2019版人教版新课标高中英语选择性必修1词汇表（带音标单词表+带音标汉译英默写+无音标汉译英默写+英译汉默写）.pdf", type: 'PDF', size: '545K' },
+    { name: "Unit+1++Art+单词导纲+清单-2025-2026学年高中英语人教版（2019）选择性必修第三册.docx", file: "assets/resources/eng/Unit+1++Art+单词导纲+清单-2025-2026学年高中英语人教版（2019）选择性必修第三册.docx", type: 'DOCX', size: '73K' },
+    { name: "【英语36】高中英语重点短语汇总 (1).pdf", file: "assets/resources/eng/【英语36】高中英语重点短语汇总 (1).pdf", type: 'PDF', size: '416K' },
+    { name: "填空版-2019版人教版新课标高中英语选择性必修1词汇表（带音标单词表+带音标汉译英默写+无音标汉译英默写+英译汉默写） - 副本.pdf", file: "assets/resources/eng/填空版-2019版人教版新课标高中英语选择性必修1词汇表（带音标单词表+带音标汉译英默写+无音标汉译英默写+英译汉默写） - 副本.pdf", type: 'PDF', size: '515K' },
+    { name: "英语4.1-4.3作业积累考点知识默写.pdf", file: "assets/resources/eng/英语4.1-4.3作业积累考点知识默写.pdf", type: 'PDF', size: '136K' },
+    { name: "英语大练考 答案 515.docx", file: "assets/resources/eng/英语大练考 答案 515.docx", type: 'DOCX', size: '267K' },
+    { name: "英语大练考题515.pdf", file: "assets/resources/eng/英语大练考题515.pdf", type: 'PDF', size: '257K' },
+    { name: "读后续写英语作文纸.pdf", file: "assets/resources/eng/读后续写英语作文纸.pdf", type: 'PDF', size: '476K' }
+  ],
+  '语文': [
+    { name: "2027届高二语文基础练习（四）参考答案.pdf", file: "assets/resources/chinese/2027届高二语文基础练习（四）参考答案.pdf", type: 'PDF', size: '215K' },
+    { name: "基础练习（四）.pdf", file: "assets/resources/chinese/基础练习（四）.pdf", type: 'PDF', size: '493K' },
+    { name: "寻找温暖 成为灯火 作文.doc", file: "assets/resources/chinese/寻找温暖 成为灯火 作文.doc", type: 'DOC', size: '22K' },
+    { name: "梦的赠予.docx", file: "assets/resources/chinese/梦的赠予.docx", type: 'DOCX', size: '10K' },
+    { name: "演出(阅读题).docx", file: "assets/resources/chinese/演出(阅读题).docx", type: 'DOCX', size: '21K' }
   ] };
 
   PageInit.resources = function () {

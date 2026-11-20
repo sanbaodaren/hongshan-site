@@ -139,6 +139,31 @@ button { font-family: inherit; cursor: pointer; }
   .banner-entry .entry-dim { display: none; }
 }
 
+/* 首页横幅入口堆叠：文学分享置于数学集成战略正上方 */
+.banner-entry.entry-lit { bottom: 66px; }
+@media (max-width: 767px) {
+  .banner-entry.entry-lit { bottom: 58px; }
+}
+
+/* 文学分享页 · 折叠阅读 */
+.lit-wrap { max-width: 860px; }
+.lit-item { border-bottom: 1px solid var(--concrete); }
+.lit-item summary {
+  display: flex; gap: 18px; align-items: flex-start; padding: 22px 0; cursor: pointer; list-style: none;
+}
+.lit-item summary::-webkit-details-marker { display: none; }
+.lit-item summary:focus-visible { outline: 2px solid var(--qing); outline-offset: 2px; }
+.lit-no { font-family: var(--mono); font-size: 13px; color: var(--steel); padding-top: 4px; flex: none; }
+.lit-head { display: flex; flex-direction: column; gap: 8px; flex: 1; min-width: 0; }
+.lit-title { font-size: 18px; font-weight: 600; letter-spacing: .03em; transition: color .2s ease; }
+.lit-item summary:hover .lit-title, .lit-item[open] .lit-title { color: var(--qing-deep); }
+.lit-sum { font-size: 14px; color: var(--muted); line-height: 1.8; }
+.lit-item[open] .lit-sum { display: none; }
+.lit-meta { display: flex; flex-wrap: wrap; gap: 18px; font-size: 12px; color: var(--muted-l); font-family: var(--mono); }
+.lit-body { padding: 4px 0 30px 31px; }
+.lit-body p { font-size: 15.5px; line-height: 2; color: var(--ink); text-indent: 2em; margin-bottom: .6em; }
+.lit-poem .lit-body p { text-indent: 0; line-height: 2.1; margin-bottom: 0; color: var(--muted); }
+@media (max-width: 767px) { .lit-body { padding-left: 0; } .lit-item summary { gap: 12px; } }
 /* 等高线装饰（SVG 注入） */
 .contour { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .5; z-index: 1; pointer-events: none; }
 

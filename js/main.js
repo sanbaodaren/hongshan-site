@@ -12,7 +12,8 @@
     { href: 'members.html',  label: '成员资料' },
     { href: 'resources.html',label: '资源共享' },
     { href: 'knowledge.html',label: '拓展知识' },
-    { href: 'methods.html',  label: '学习方法' }
+    { href: 'methods.html',  label: '学习方法' },
+    { href: 'literature.html', label: '文学分享' }
   ];
 
   /* ---------- 等高线 / 水纹 装饰 SVG ---------- */

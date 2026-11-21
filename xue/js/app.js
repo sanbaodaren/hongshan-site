@@ -164,7 +164,7 @@
           </g>
         </svg>
         <div class="container">
-          <p class="banner-overline">TIE YI FEN BU</p>
+          <p class="banner-overline">学习站点</p>
           <h1 class="banner-title">宏山科学院 · 铁一分部</h1>
           <p class="banner-sub">绿水青山　科学发展</p>
         </div>

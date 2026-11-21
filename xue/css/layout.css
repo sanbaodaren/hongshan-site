@@ -1,0 +1,443 @@
+/* 版式对齐 hskxy-ty.netlify.app：墨黑顶栏、横幅、板块卡片、墨黑页脚 */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #101110;
+  border-bottom: 1px solid #d4d4ce;
+}
+
+.header-inner {
+  width: 100%;
+  height: 80px;
+  margin: 0;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.site-header .brand {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  white-space: nowrap;
+}
+
+.brand-mark {
+  font-size: 28px;
+  font-weight: 700;
+  color: #f5f5f0;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+}
+
+.brand-mark:hover {
+  color: #14d0d0;
+}
+
+.site-header .brand-sub {
+  display: inline;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: #8ab8b0;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-link {
+  position: relative;
+  font-size: 14px;
+  color: #d4d4ce;
+  padding: 6px 0;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: #14d0d0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #14d0d0;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid #d4d4ce;
+  color: #f5f5f0;
+  font-size: 20px;
+  line-height: 1;
+  padding: 6px 12px;
+}
+
+.banner {
+  position: relative;
+  height: 360px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #e8e8e2 0%, #d4d4ce 100%);
+  border-bottom: 1px solid #d4d4ce;
+}
+
+.banner .container {
+  position: relative;
+  z-index: 2;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 0 32px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.banner-overline {
+  margin: 0 0 16px;
+  font-family: "SF Mono", "Cascadia Code", Consolas, "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 0.38em;
+  color: #4a6a7a;
+}
+
+.banner-overline::before {
+  content: "// ";
+  color: #14d0d0;
+}
+
+.banner-title {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: #101110;
+}
+
+.banner-sub {
+  margin: 12px 0 0;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  color: #4a6a7a;
+}
+
+.contour {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.waterline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 18px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tianshi {
+  position: absolute;
+  right: 40px;
+  bottom: 26px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.tianshi-cap { width: 22px; height: 4px; background: #14d0d0; }
+.tianshi-pillar {
+  width: 4px;
+  height: 108px;
+  position: relative;
+  background: repeating-linear-gradient(to bottom, #14d0d0 0 16px, transparent 16px 20px);
+}
+.tianshi-pillar::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -3px;
+  width: 10px;
+  height: 10px;
+  background: #14d0d0;
+}
+.tianshi-base { width: 28px; height: 5px; background: #14d0d0; opacity: 0.45; }
+
+.layout-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin: 0 0 40px;
+  background: #d4d4ce;
+  border: 1px solid #d4d4ce;
+}
+
+.layout-stat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px 22px;
+  background: #f0ede8;
+}
+
+.layout-stat::before {
+  content: "";
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 14px;
+  height: 14px;
+  border-right: 1px solid #d4d4ce;
+  border-top: 1px solid #d4d4ce;
+}
+
+.layout-stat b {
+  font-family: "SF Mono", "Cascadia Code", Consolas, "Courier New", monospace;
+  font-size: 27px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #14d0d0;
+}
+
+.layout-stat span {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: #8a8a84;
+}
+
+.layout-stat i {
+  font-style: normal;
+  font-family: "SF Mono", "Cascadia Code", Consolas, "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: #4a6a7a;
+}
+
+.board-section { padding: 60px 0 80px; }
+
+.board-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #d4d4ce;
+}
+
+.board-head h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.board-head .idx {
+  margin-right: 12px;
+  font-family: "SF Mono", "Cascadia Code", Consolas, "Courier New", monospace;
+  font-size: 14px;
+  color: #14d0d0;
+}
+
+.board-head .en { color: #4a6a7a; margin-right: 0; }
+.board-head p {
+  margin: 0;
+  font-family: "SF Mono", "Cascadia Code", Consolas, "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  color: #8a8a84;
+}
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.board-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-height: 220px;
+  padding: 44px 28px 30px;
+  border: 1px solid #d4d4ce;
+  background: #f0ede8;
+  color: #101110;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(16, 17, 16, 0.05), 0 2px 6px rgba(16, 17, 16, 0.05);
+}
+
+.board-card:hover {
+  background: #e8e8e2;
+  border-color: #14d0d0;
+  color: #101110;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(16, 17, 16, 0.16);
+}
+
+.card-no {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 4px 10px;
+  background: #e8e8e2;
+  color: #14d0d0;
+  font-family: "SF Mono", "Cascadia Code", Consolas, "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.card-notch {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  border-right: 2px solid #d4d4ce;
+  border-top: 2px solid #d4d4ce;
+  opacity: 0.55;
+}
+
+.board-card:hover .card-notch {
+  border-color: #14d0d0;
+  opacity: 0.9;
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  margin-top: 4px;
+  color: #14d0d0;
+}
+
+.board-card h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.board-card p {
+  margin: 0;
+  font-size: 13px;
+  color: #6a6a64;
+}
+
+.card-arrow {
+  position: absolute;
+  right: 14px;
+  bottom: 10px;
+  color: #14d0d0;
+  font-size: 19px;
+  line-height: 1;
+}
+
+.board-card:hover .card-arrow { transform: translateX(4px); }
+
+.site-footer {
+  background: #101110;
+  border-top: 1px solid #d4d4ce;
+}
+
+.site-footer .footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 60px;
+  padding: 14px 0;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: #8a8a84;
+}
+
+.container {
+  width: min(1200px, calc(100% - 64px));
+  margin: 0 auto;
+}
+
+.site-header .header-inner {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 32px;
+}
+
+@media (max-width: 991px) {
+  .nav-toggle { display: block; }
+  .site-nav {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 24px 16px;
+    background: #101110;
+    border-bottom: 1px solid #d4d4ce;
+  }
+  .site-nav.open { display: flex; }
+  .nav-link {
+    padding: 14px 4px;
+    border-bottom: 1px solid rgba(212, 212, 206, 0.14);
+    font-size: 15px;
+  }
+  .banner-title { font-size: 36px; }
+  .layout-stats { grid-template-columns: repeat(2, 1fr); }
+  .board-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 767px) {
+  .header-inner { height: 64px; }
+  .site-nav { top: 64px; }
+  .brand-mark { font-size: 20px; }
+  .site-header .brand-sub { display: none; }
+  .banner { height: 280px; }
+  .banner-title { font-size: 28px; }
+  .banner-sub { font-size: 15px; letter-spacing: 0.08em; }
+  .tianshi { right: 16px; bottom: 12px; transform: scale(0.6); transform-origin: bottom right; }
+  .board-section { padding: 36px 0 48px; }
+}

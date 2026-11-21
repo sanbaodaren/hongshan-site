@@ -12,7 +12,7 @@
     { href: 'members.html',  label: '成员资料' },
     { href: 'resources.html',label: '资源共享' },
     { href: 'knowledge.html',label: '拓展知识' },
-    { href: 'methods.html',  label: '学习方法' },
+    { href: 'xue/',          label: '学习站点' },
     { href: 'literature.html', label: '文学分享' }
   ];
 
@@ -448,30 +448,5 @@
     });
   };
 
-  /* —— 学习方法 —— */
-  PageInit.methods = function () {
-    var input = document.getElementById('methodSearch');
-    var cards = document.querySelectorAll('.method-card');
-    var catFilter = 'all';
-
-    function apply() {
-      var kw = input ? input.value.trim().toLowerCase() : '';
-      cards.forEach(function (card) {
-        var matchCat = (catFilter === 'all' || card.getAttribute('data-cat') === catFilter);
-        var matchKw = kw === '' || (card.getAttribute('data-key') || '').toLowerCase().indexOf(kw) !== -1;
-        card.hidden = !(matchCat && matchKw);
-      });
-    }
-
-    if (input) input.addEventListener('input', apply);
-
-    document.querySelectorAll('.method-toolbar .tab').forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        document.querySelectorAll('.method-toolbar .tab').forEach(function (t) { t.classList.remove('active'); });
-        tab.classList.add('active');
-        catFilter = tab.getAttribute('data-cat');
-        apply();
-      });
-    });
-  };
+  
 })();
